@@ -1,0 +1,113 @@
+/* GLOBAL */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+/* HOME PAGE */
+
+.landing-hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(Gambar/backround.png);
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* NAVBAR */
+
+.custom-navbar {
+  background-color: #111827;
+}
+
+.nav-link {
+  color: white !important;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #38bdf8 !important;
+}
+
+/* HERO BOOKING */
+
+.booking-hero {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(Gambar/home.jpg);
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* FILTER OLAHRAGA */
+
+.filter-btn {
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: #111827;
+  color: white;
+}
+
+/* CARD VENUE */
+
+.venue-card {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.venue-card:hover {
+  transform: translateY(-10px);
+}
+
+.venue-img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-body h4 {
+  font-weight: 700;
+}
+
+/* POP UP */
+
+.modal-content {
+  border-radius: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .booking-hero h1 {
+    font-size: 32px;
+  }
+
+  .booking-hero p {
+    font-size: 16px;
+  }
+}
