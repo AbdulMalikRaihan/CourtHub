@@ -151,6 +151,7 @@
                                 Rp150k/jam
                             </h5>
 
+                            <button class="btn btn-danger" onclick="openBooking('Padel arena bekasi', 150000)">
                             <button class="btn btn-danger" onclick="addToCart('Padel arena bekasi', 150000)">
                                 Booking
                             </button>
@@ -188,6 +189,11 @@
         </div>
 
     </footer>
+
+    <!-- MODAL BOOKING -->
+
+<div class="modal fade"
+id="bookingModal"
 </body>
 
     <!-- JS BOOTSTRAP -->
@@ -206,6 +212,17 @@ tabindex="-1">
 
     <div class="modal-dialog modal-dialog-centered">
 
+        <div class="modal-content p-4">
+
+            <div class="modal-header border-0">
+
+                <h3 class="fw-bold">
+                    Booking Lapangan
+                </h3>
+
+                <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
         <div class="modal-content">
 
             <div class="modal-header">
@@ -223,6 +240,52 @@ tabindex="-1">
 
             <div class="modal-body">
 
+                <form>
+
+        
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Nama Lengkap
+                        </label>
+
+                        <input type="text"
+                            class="form-control"
+                            placeholder="Masukkan nama">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Nomor HP
+                        </label>
+
+                        <input type="text"
+                            class="form-control"
+                            placeholder="08xxxxxxxx">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Tanggal Booking
+                        </label>
+
+                        <input type="date"
+                            class="form-control">
+
+                    </div>
+
+                    <button class="btn btn-success w-100">
+
+                        Booking Sekarang
+
+                    </button>
+
+                </form>
                 <div id="cartItems">
 
                     <p class="text-muted">
@@ -255,6 +318,32 @@ tabindex="-1">
     </div>
 
 </div>
+
+    <script>
+
+        function openBooking(nama){
+
+          
+
+            let modal =
+            new bootstrap.Modal(
+                document.getElementById('bookingModal')
+            );
+
+            modal.show();
+
+        }
+
+    </script>
+</body>
+
+
+  
+
+
+
+<!-- MODAL CART -->
+
 
 <!-- JAVASCRIPT -->
 
