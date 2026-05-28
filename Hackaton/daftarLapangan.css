@@ -1,0 +1,45 @@
+/* ========================= */
+/* VENUE SECTION */
+/* ========================= */
+
+.venue-section{
+    margin-top: 80px;
+}
+
+.venue-title{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.venue-subtitle{
+    color: gray;
+    font-size: 18px;
+}
+
+.venue-filter{
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.venue-card{
+    border: none !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.venue-card:hover{
+    transform: translateY(-8px);
+}
+
+.venue-img{
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title{
+    font-weight: 700;
+}

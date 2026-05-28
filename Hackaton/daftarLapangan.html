@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Daftar Lapangan | Court-Hub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="daftarLapangan.css">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
+
+        <div class="container">
+
+            <img src="Gambar/logobener.png"
+                alt=""
+                style="width: 110px;">
+
+            <a class="navbar-brand fw-bold"
+                href="#">
+                Court-Hub
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="home.html">
+                            Home
+                        </a>
+                    </li>
+
+             
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            href="daftarlapangan.html">
+                            Daftar Lapangan
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero-section">
+
+        <div class="container text-center hero-content">
+
+            <h1 class="hero-title">
+                Cari Lapangan Favoritmu
+            </h1>
+
+            <p class="hero-subtitle">
+                Booking venue olahraga kini lebih mudah,
+                cepat, dan modern bersama Court-Hub.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- VENUE SECTION -->
+
+    <section class="venue-section container py-5">
+
+        <!-- TITLE -->
+
+        <div class="text-center mb-5">
+
+            <h1 class="venue-title">
+                Daftar Lapangan
+            </h1>
+
+            <p class="venue-subtitle">
+                Temukan venue favoritmu dan booking dengan mudah
+            </p>
+
+        </div>
+
+       
+        <!-- CARD -->
+
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+
+            <div class="col-md-4">
+
+                <div class="card venue-card h-100">
+
+                    <img src="Gambar/homeraket.jpg"
+                        class="card-img-top venue-img">
+
+                    <div class="card-body">
+
+                        <span class="badge bg-danger mb-2">
+                            Padel
+                        </span>
+
+                        <h4 class="card-title">
+                            Padel Arena Bekasi
+                        </h4>
+
+                        <p class="text-muted">
+                            📍 Bekasi Barat
+                        </p>
+
+                        <p>
+                            ⭐ 4.9 • Indoor Court Premium
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <h5 class="text-danger">
+                                Rp150k/jam
+                            </h5>
+
+                            <button class="btn btn-danger" onclick="addToCart('Padel arena bekasi', 150000)">
+                                Booking
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+         </div>   
+            
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container text-center">
+
+            <h5>
+                Court-Hub
+            </h5>
+
+            <p>
+                Platform booking lapangan olahraga modern
+            </p>
+
+            <p class="copyright">
+                © 2026 Court-Hub. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+</body>
+
+    <!-- JS BOOTSTRAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+
+
+
+<!-- MODAL CART -->
+
+<div class="modal fade"
+id="cartModal"
+tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Troli Booking
+                </h5>
+
+                <button type="button"
+                    class="btn-close"
+                     data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div id="cartItems">
+
+                    <p class="text-muted">
+                        Belum ada booking
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Tutup
+
+                </button>
+
+                <button class="btn btn-danger">
+
+                    Checkout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<!-- <script>
+
+    let cart = [];
+
+    function addToCart(nama, harga){
+
+        cart.push({
+            nama: nama,
+            harga: harga
+        });
+
+        renderCart();
+
+        let modal =
+        new bootstrap.Modal(
+            document.getElementById('cartModal')
+        );
+
+        modal.show();
+
+    }
+
+    function renderCart(){
+
+        let cartContainer =
+        document.getElementById('cartItems');
+
+        if(cart.length === 0){
+
+            cartContainer.innerHTML =
+            `<p>Belum ada booking</p>`;
+
+            return;
+        }
+
+        let html = '';
+
+        let total = 0;
+
+        for(let i = 0; i < cart.length; i++){
+
+            total += cart[i].harga;
+
+            html += `
+            
+            <div class="border rounded p-3 mb-3">
+
+                <h5>${cart[i].nama}</h5>
+
+                <p>
+                    Rp${cart[i].harga.toLocaleString()}
+                </p>
+
+            </div>
+
+            `;
+        }
+
+        html += `
+        
+        <h4 class="text-danger">
+            Total :
+            Rp${total.toLocaleString()}
+        </h4>
+
+        `;
+
+        cartContainer.innerHTML = html;
+
+    }
+
+</script> -->
+
+<!-- BOOTSTRAP JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</html>
