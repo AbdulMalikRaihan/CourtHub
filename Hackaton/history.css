@@ -1,0 +1,33 @@
+body{
+    background: #f5f5f5;
+}
+
+.checkout-section{
+    padding: 60px 0;
+}
+
+.checkout-card,
+.summary-card{
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.checkout-item{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-img{
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.checkout-info{
+    flex: 1;
+}
