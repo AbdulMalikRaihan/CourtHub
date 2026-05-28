@@ -306,13 +306,11 @@ window.openBookingModal = function (name, price) {
 
   document.getElementById("venueName").value = name;
 
-  document.getElementById(
-    "totalPrice"
-  ).value = `Rp${price.toLocaleString("id-ID")}`;
+  document.getElementById("totalPrice").value = `Rp${price.toLocaleString(
+    "id-ID"
+  )}`;
 
-  const modal = new bootstrap.Modal(
-    document.getElementById("bookingModal")
-  );
+  const modal = new bootstrap.Modal(document.getElementById("bookingModal"));
 
   modal.show();
 };
@@ -323,9 +321,9 @@ if (durationInput) {
   durationInput.addEventListener("change", function () {
     const total = selectedPrice * parseInt(this.value);
 
-    document.getElementById(
-      "totalPrice"
-    ).value = `Rp${total.toLocaleString("id-ID")}`;
+    document.getElementById("totalPrice").value = `Rp${total.toLocaleString(
+      "id-ID"
+    )}`;
   });
 }
 
@@ -356,7 +354,15 @@ if (bookingForm) {
 
     alert("Booking berhasil!");
 
-    window.location.href = "bookingHistory.html";
+    // tutup pop up
+    bootstrap.Modal.getInstance(
+      document.getElementById("bookingModal")
+    ).hide();
+
+    // reset form
+    document.getElementById("bookingForm").reset();
+
+    document.getElementById("totalPrice").value = "";
   });
 }
 
@@ -365,8 +371,7 @@ if (bookingForm) {
 const historyList = document.getElementById("historyList");
 
 if (historyList) {
-  let bookings =
-    JSON.parse(localStorage.getItem("bookings")) || [];
+  let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
   function renderBookings() {
     historyList.innerHTML = "";
@@ -433,10 +438,7 @@ if (historyList) {
   window.deleteBooking = function (index) {
     bookings.splice(index, 1);
 
-    localStorage.setItem(
-      "bookings",
-      JSON.stringify(bookings)
-    );
+    localStorage.setItem("bookings", JSON.stringify(bookings));
 
     renderBookings();
   };
@@ -445,59 +447,35 @@ if (historyList) {
     const booking = bookings[index];
 
     document.getElementById("editIndex").value = index;
-    document.getElementById("editCustomer").value =
-      booking.customer;
-    document.getElementById("editDate").value =
-      booking.date;
-    document.getElementById("editTime").value =
-      booking.time;
+    document.getElementById("editCustomer").value = booking.customer;
+    document.getElementById("editDate").value = booking.date;
+    document.getElementById("editTime").value = booking.time;
 
-    const modal = new bootstrap.Modal(
-      document.getElementById("editModal")
-    );
+    const modal = new bootstrap.Modal(document.getElementById("editModal"));
 
     modal.show();
   };
 
-  const editForm =
-    document.getElementById("editForm");
+  const editForm = document.getElementById("editForm");
 
   if (editForm) {
-    editForm.addEventListener(
-      "submit",
-      function (e) {
-        e.preventDefault();
+    editForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        const index =
-          document.getElementById("editIndex").value;
+      const index = document.getElementById("editIndex").value;
 
-        bookings[index].customer =
-          document.getElementById(
-            "editCustomer"
-          ).value;
+      bookings[index].customer = document.getElementById("editCustomer").value;
 
-        bookings[index].date =
-          document.getElementById(
-            "editDate"
-          ).value;
+      bookings[index].date = document.getElementById("editDate").value;
 
-        bookings[index].time =
-          document.getElementById(
-            "editTime"
-          ).value;
+      bookings[index].time = document.getElementById("editTime").value;
 
-        localStorage.setItem(
-          "bookings",
-          JSON.stringify(bookings)
-        );
+      localStorage.setItem("bookings", JSON.stringify(bookings));
 
-        bootstrap.Modal.getInstance(
-          document.getElementById("editModal")
-        ).hide();
+      bootstrap.Modal.getInstance(document.getElementById("editModal")).hide();
 
-        renderBookings();
-      }
-    );
+      renderBookings();
+    });
   }
 
   renderBookings();
