@@ -152,6 +152,7 @@
                             </h5>
 
                             <button class="btn btn-danger" onclick="openBooking('Padel arena bekasi', 150000)">
+                            <button class="btn btn-danger" onclick="addToCart('Padel arena bekasi', 150000)">
                                 Booking
                             </button>
 
@@ -193,6 +194,20 @@
 
 <div class="modal fade"
 id="bookingModal"
+</body>
+
+    <!-- JS BOOTSTRAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+
+
+
+<!-- MODAL CART -->
+
+<div class="modal fade"
+id="cartModal"
 tabindex="-1">
 
     <div class="modal-dialog modal-dialog-centered">
@@ -208,6 +223,17 @@ tabindex="-1">
                 <button type="button"
                     class="btn-close"
                     data-bs-dismiss="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Troli Booking
+                </h5>
+
+                <button type="button"
+                    class="btn-close"
+                     data-bs-dismiss="modal">
                 </button>
 
             </div>
@@ -260,6 +286,30 @@ tabindex="-1">
                     </button>
 
                 </form>
+                <div id="cartItems">
+
+                    <p class="text-muted">
+                        Belum ada booking
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Tutup
+
+                </button>
+
+                <button class="btn btn-danger">
+
+                    Checkout
+
+                </button>
 
             </div>
 
